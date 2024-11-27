@@ -1,11 +1,58 @@
 .quick-transfer {
+  .contacts-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    overflow: hidden;
+  }
+
   .contact {
     display: flex;
     flex-direction: column;
     text-align: center;
+    min-width: 100px;
   }
 
   .contact-img {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+    width: 75px;
+  }
+
+  .contact-important {
+    font-weight: bold;
+  }
+
+  .arrow {
+    color: var(--medium-grey);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
+  }
+
+  .hidden-arrow {
+    visibility: hidden;
+  }
+
+  .role {
+    color: var(--medium-grey);
+  }
+
+  .amount-container {
+    color: var(--medium-grey);
+
+    input {
+      background-color: transparent;
+    }
+
+    .send-button {
+      position: absolute;
+      background-color: #000;
+    }
   }
 }
