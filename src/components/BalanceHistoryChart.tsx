@@ -1,4 +1,3 @@
-// src/components/BalanceHistoryChart.tsx
 import {
   CategoryScale,
   Chart as ChartJS,
