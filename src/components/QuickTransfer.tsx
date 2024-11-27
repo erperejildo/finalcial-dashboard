@@ -8,44 +8,45 @@ interface Contact {
   selected: boolean;
 }
 
+const contactsList: Contact[] = [
+  {
+    name: 'Livia Bator',
+    role: 'CEO',
+    profilePicture: 'https://i.pravatar.cc/100?img=1',
+    selected: true,
+  },
+  {
+    name: 'Randy Press',
+    role: 'Director',
+    profilePicture: 'https://i.pravatar.cc/100?img=5',
+    selected: false,
+  },
+  {
+    name: 'Workman',
+    role: 'Designer',
+    profilePicture: 'https://i.pravatar.cc/100?img=10',
+    selected: false,
+  },
+  {
+    name: 'Workman',
+    role: 'Designer',
+    profilePicture: 'https://i.pravatar.cc/100?img=8',
+    selected: false,
+  },
+  {
+    name: 'Workman',
+    role: 'Designer',
+    profilePicture: 'https://i.pravatar.cc/100?img=7',
+    selected: false,
+  },
+];
+
 const QuickTransfer: React.FC = () => {
+  const [contacts, setContacts] = useState<Contact[]>(contactsList);
   const [amount, setAmount] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
-
-  const contacts: Contact[] = [
-    {
-      name: 'Livia Bator',
-      role: 'CEO',
-      profilePicture: 'https://i.pravatar.cc/100?img=1',
-      selected: true,
-    },
-    {
-      name: 'Randy Press',
-      role: 'Director',
-      profilePicture: 'https://i.pravatar.cc/100?img=5',
-      selected: false,
-    },
-    {
-      name: 'Workman',
-      role: 'Designer',
-      profilePicture: 'https://i.pravatar.cc/100?img=10',
-      selected: false,
-    },
-    {
-      name: 'Workman',
-      role: 'Designer',
-      profilePicture: 'https://i.pravatar.cc/100?img=8',
-      selected: false,
-    },
-    {
-      name: 'Workman',
-      role: 'Designer',
-      profilePicture: 'https://i.pravatar.cc/100?img=7',
-      selected: false,
-    },
-  ];
 
   const updateArrowVisibility = () => {
     if (!containerRef.current) return;
@@ -83,6 +84,16 @@ const QuickTransfer: React.FC = () => {
     }, 300);
   };
 
+  const selectContact = (index: number) => {
+    const newContacts = contacts.map((contact) => ({
+      ...contact,
+      selected: false,
+    }));
+    newContacts[index].selected = true;
+
+    setContacts(newContacts);
+  };
+
   return (
     <>
       <h3 className="font-semibold text-lg mb-4">Quick Transfer</h3>
@@ -105,7 +116,11 @@ const QuickTransfer: React.FC = () => {
           </button>
           <div className="contacts" ref={containerRef}>
             {contacts.map((contact, index) => (
-              <div key={index} className="contact">
+              <div
+                key={index}
+                className="contact"
+                onClick={() => selectContact(index)}
+              >
                 <img
                   src={contact.profilePicture}
                   alt={contact.name}

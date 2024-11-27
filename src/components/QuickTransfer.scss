@@ -16,6 +16,11 @@
     flex-direction: column;
     text-align: center;
     min-width: 100px;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 
   .contact-img {
