@@ -2,72 +2,62 @@ import React, { useState } from 'react';
 import './QuickTransfer.scss';
 
 interface Contact {
-  id: number;
   name: string;
   role: string;
-  profilePic: string;
+  profilePicture: string;
 }
 
-const contacts: Contact[] = [
-  { id: 1, name: 'John Doe', role: 'Friend', profilePic: '/images/john.jpg' },
-  {
-    id: 2,
-    name: 'Sarah Smith',
-    role: 'Colleague',
-    profilePic: '/images/sarah.jpg',
-  },
-  {
-    id: 3,
-    name: 'Emily Davis',
-    role: 'Family',
-    profilePic: '/images/emily.jpg',
-  },
-];
-
 const QuickTransfer: React.FC = () => {
-  const [amount, setAmount] = useState<string>('');
+  const [amount, setAmount] = useState<number>(0);
 
-  const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(event.target.value);
-  };
-
-  const handleSendClick = (contact: Contact) => {
-    alert(`Sending ${amount} to ${contact.name}`);
-  };
+  const contacts: Contact[] = [
+    {
+      name: 'John Doe',
+      role: 'Friend',
+      profilePicture: 'https://i.pravatar.cc/50?img=1',
+    },
+    {
+      name: 'Jane Smith',
+      role: 'Colleague',
+      profilePicture: 'https://i.pravatar.cc/50?img=2',
+    },
+    {
+      name: 'Alice Brown',
+      role: 'Family',
+      profilePicture: 'https://i.pravatar.cc/50?img=3',
+    },
+  ];
 
   return (
-    <div className="quick-transfer">
-      <h2>Quick Transfer</h2>
-      <div className="contacts-list">
-        {contacts.map((contact) => (
-          <div key={contact.id} className="contact-item">
+    <div className="quick-transfer p-4 border border-gray-200 rounded-lg shadow-sm">
+      <h3 className="font-semibold text-lg mb-4">Quick Transfer</h3>
+      <div className="contacts mb-4">
+        {contacts.map((contact, index) => (
+          <div key={index} className="flex items-center space-x-3 mb-3">
             <img
-              src={contact.profilePic}
+              src={contact.profilePicture}
               alt={contact.name}
-              className="profile-pic"
+              className="w-10 h-10 rounded-full"
             />
-            <div className="contact-info">
-              <h3>{contact.name}</h3>
-              <p>{contact.role}</p>
+            <div>
+              <p className="font-medium">{contact.name}</p>
+              <p className="text-sm text-gray-500">{contact.role}</p>
             </div>
-            <button
-              onClick={() => handleSendClick(contact)}
-              className="send-btn"
-            >
-              Send
-            </button>
           </div>
         ))}
       </div>
-      <div className="transfer-amount">
+      <div className="input-group mb-4">
         <input
-          type="text"
+          type="number"
           value={amount}
-          onChange={handleAmountChange}
+          onChange={(e) => setAmount(Number(e.target.value))}
           placeholder="Enter amount"
-          className="amount-input"
+          className="w-full p-3 border border-gray-300 rounded-lg"
         />
       </div>
+      <button className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+        Send
+      </button>
     </div>
   );
 };
