@@ -10,23 +10,34 @@ const Settings: React.FC = () => {
   };
 
   return (
-    <div className="settings">
-      <h1>Settings</h1>
-      <div className="tabs">
+    <div className="settings p-4 md:p-8">
+      <h1 className="text-xl md:text-3xl font-semibold mb-6">Settings</h1>
+
+      <div className="tabs flex flex-col md:flex-row gap-4 mb-6">
         <button
-          className={activeTab === 'editProfile' ? 'active' : ''}
+          className={`p-3 font-semibold rounded-lg transition-all ${
+            activeTab === 'editProfile'
+              ? 'bg-blue-500 text-white'
+              : 'bg-gray-100'
+          }`}
           onClick={() => handleTabClick('editProfile')}
         >
           Edit Profile
         </button>
         <button
-          className={activeTab === 'preferences' ? 'active' : ''}
+          className={`p-3 font-semibold rounded-lg transition-all ${
+            activeTab === 'preferences'
+              ? 'bg-blue-500 text-white'
+              : 'bg-gray-100'
+          }`}
           onClick={() => handleTabClick('preferences')}
         >
           Preferences
         </button>
         <button
-          className={activeTab === 'security' ? 'active' : ''}
+          className={`p-3 font-semibold rounded-lg transition-all ${
+            activeTab === 'security' ? 'bg-blue-500 text-white' : 'bg-gray-100'
+          }`}
           onClick={() => handleTabClick('security')}
         >
           Security
