@@ -1,8 +1,8 @@
 // src/pages/Dashboard.tsx
 import React from 'react';
 import BalanceHistoryChart from '../components/BalanceHistoryChart';
-import CardDetails from '../components/CardDetails';
 import ExpenseStatistics from '../components/ExpenseStatistics';
+import MyCards from '../components/MyCards';
 import QuickTransfer from '../components/QuickTransfer';
 import RecentTransactions from '../components/RecentTransactions';
 import WeeklyActivityChart from '../components/WeeklyActivityChart';
@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div className="col-span-1">
-          <CardDetails />
+          <MyCards />
         </div>
         <div className="col-span-1">
           <RecentTransactions />
