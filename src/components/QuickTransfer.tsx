@@ -31,13 +31,13 @@ const QuickTransfer: React.FC = () => {
   return (
     <div className="quick-transfer p-4 border border-gray-200 rounded-lg shadow-sm">
       <h3 className="font-semibold text-lg mb-4">Quick Transfer</h3>
-      <div className="contacts mb-4">
+      <div className="contacts flex flex-row mb-4">
         {contacts.map((contact, index) => (
-          <div key={index} className="flex items-center space-x-3 mb-3">
+          <div key={index} className="contact">
             <img
               src={contact.profilePicture}
               alt={contact.name}
-              className="w-10 h-10 rounded-full"
+              className="contact-img w-10 h-10 rounded-full"
             />
             <div>
               <p className="font-medium">{contact.name}</p>
