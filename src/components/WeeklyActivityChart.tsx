@@ -21,7 +21,6 @@ ChartJS.register(
 );
 
 const WeeklyActivityChart: React.FC = () => {
-  // dummy data for the chart (this would normally come from an API or state)
   const data = {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     datasets: [
