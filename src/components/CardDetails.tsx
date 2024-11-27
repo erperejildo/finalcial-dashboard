@@ -1,36 +1,47 @@
 import React from 'react';
+import './CardDetails.scss';
+
+interface Card {
+  id: number;
+  name: string;
+  balance: number;
+  number: string;
+}
 
 const CardDetails: React.FC = () => {
-  const cards = [
+  const cards: Card[] = [
     {
       id: 1,
       name: 'John Doe',
-      balance: 500,
-      cardNumber: '**** **** **** 1234',
+      balance: 1200.75,
+      number: '**** **** **** 1234',
     },
     {
       id: 2,
       name: 'Jane Smith',
-      balance: 1200,
-      cardNumber: '**** **** **** 5678',
+      balance: 5000.0,
+      number: '**** **** **** 5678',
+    },
+    {
+      id: 3,
+      name: 'Alex Johnson',
+      balance: 220.5,
+      number: '**** **** **** 9876',
     },
   ];
 
   return (
     <div className="card-details">
       <h2>My Cards</h2>
-      <ul>
+      <div className="card-list">
         {cards.map((card) => (
-          <li key={card.id}>
-            <div className="card-info">
-              <p>{card.name}</p>
-              <p>Balance: ${card.balance}</p>
-              <p>{card.cardNumber}</p>
-            </div>
-          </li>
+          <div key={card.id} className="card">
+            <h3>{card.name}</h3>
+            <p>Balance: ${card.balance.toFixed(2)}</p>
+            <p>Card Number: {card.number}</p>
+          </div>
         ))}
-      </ul>
-      <button className="see-all-btn">See All</button>
+      </div>
     </div>
   );
 };
