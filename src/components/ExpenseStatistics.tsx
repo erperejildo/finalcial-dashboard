@@ -13,7 +13,6 @@ import './ExpenseStatistics.scss';
 ChartJS.register(ArcElement, Tooltip, Legend, Title, CategoryScale);
 
 const ExpenseStatistics: React.FC = () => {
-  // Dummy data for the expense breakdown (this would normally come from an API or state)
   const data = {
     labels: ['Entertainment', 'Bills', 'Investments', 'Others'],
     datasets: [
