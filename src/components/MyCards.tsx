@@ -21,7 +21,10 @@ const cardsList = [
 const MyCards: React.FC = () => {
   return (
     <div className="my-cards">
-      <h2 className="text-xl font-semibold mb-4">My Cards</h2>
+      <div className="component-name-button">
+        <h2 className="text-xl font-semibold">My Cards</h2>
+        <span>See All</span>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cardsList.map((card, index) => (
           <CardDetails
@@ -34,9 +37,6 @@ const MyCards: React.FC = () => {
           />
         ))}
       </div>
-      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-        See All
-      </button>
     </div>
   );
 };

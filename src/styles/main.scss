@@ -22,3 +22,15 @@ h1 {
 .rounded-xxl {
   border-radius: 1.5rem;
 }
+
+.component-name-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  span {
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
