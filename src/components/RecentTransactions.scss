@@ -1,32 +1,29 @@
 .recent-transactions {
-  background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
 
-  h2 {
-    color: #333;
+  .container {
+    max-height: 300px;
+    overflow-y: scroll;
   }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
+  .icon {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 
-  li {
-    @apply flex items-center justify-between;
+  .card {
+    background-color: #fff5d9;
   }
-
-  li.negative {
-    color: red;
+  .paypal {
+    background-color: #e7edff;
   }
-
-  li.positive {
-    color: green;
-  }
-
-  span {
-    font-size: 14px;
+  .other {
+    background-color: #dcfaf8;
   }
 }
