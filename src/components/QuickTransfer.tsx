@@ -97,7 +97,7 @@ const QuickTransfer: React.FC = () => {
   return (
     <>
       <h3 className="font-semibold text-lg mb-4">Quick Transfer</h3>
-      <div className="quick-transfer p-4 border rounded-xxl border-gray-200 shadow-sm">
+      <div className="quick-transfer p-4 rounded-xxl bg-white">
         <div className="contacts-container mb-4 gap-5">
           <button
             onClick={() => scrollContainer('left')}

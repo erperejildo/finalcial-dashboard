@@ -20,27 +20,75 @@ ChartJS.register(
   Legend
 );
 
-const WeeklyActivityChart: React.FC = () => {
-  const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    datasets: [
-      {
-        label: 'Deposits',
-        data: [200, 300, 250, 150, 400, 500, 350],
-        backgroundColor: '#3498db',
-      },
-      {
-        label: 'Withdrawals',
-        data: [-50, -100, -75, -60, -120, -80, -40],
-        backgroundColor: '#e74c3c',
-      },
-    ],
-  };
+const data = {
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  datasets: [
+    {
+      label: 'Deposit',
+      data: [480, 350, 320, 480, 150, 390, 390],
+      backgroundColor: '#000',
+    },
+    {
+      label: 'Withdrawal',
+      data: [250, 120, 260, 380, 250, 250, 340],
+      backgroundColor: '#396aff',
+    },
+  ],
+};
 
+const options = {
+  categoryPercentage: 0.6,
+  barPercentage: 0.6,
+  responsive: true,
+  borderSkipped: false,
+  borderRadius: 10,
+  plugins: {
+    legend: {
+      align: 'end' as 'start' | 'center' | 'end',
+      labels: {
+        usePointStyle: true,
+        pointStyle: 'circle',
+        pointRadius: 15,
+        color: '#718ebf',
+      },
+    },
+  },
+  scales: {
+    x: {
+      border: { color: '#f3f3f5' },
+      grid: {
+        display: false,
+      },
+      ticks: {
+        color: '#718ebf',
+        padding: 10,
+      },
+    },
+    y: {
+      border: { display: false },
+      grid: {
+        display: true,
+        color: '#f3f3f5',
+      },
+      ticks: {
+        color: '#718ebf',
+        padding: 20,
+        font: {
+          size: 14,
+          family: 'Segoe UI',
+        },
+      },
+    },
+  },
+};
+
+const WeeklyActivityChart: React.FC = () => {
   return (
     <div className="weekly-activity-chart">
-      <h2>Weekly Activity</h2>
-      <Bar data={data} />
+      <h3 className="font-semibold text-xl mb-4">Weekly Activity</h3>
+      <div className="chart-container rounded-xxl bg-white">
+        <Bar data={data} options={options} />
+      </div>
     </div>
   );
 };

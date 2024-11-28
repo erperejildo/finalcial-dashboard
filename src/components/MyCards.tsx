@@ -22,7 +22,7 @@ const MyCards: React.FC = () => {
   return (
     <div className="my-cards">
       <div className="component-name-button">
-        <h2 className="text-xl font-semibold">My Cards</h2>
+        <h3 className="text-xl font-semibold">My Cards</h3>
         <span>See All</span>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

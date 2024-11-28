@@ -53,13 +53,13 @@ const RecentTransactions: React.FC = () => {
   return (
     <div className="recent-transactions">
       <h3 className="font-semibold text-xl mb-4">Recent Transactions</h3>
-      <div className="container bg-white p-4 rounded-xxl">
+      <div className="container bg-white p-5 rounded-xxl">
         <ul className="space-y-4">
           {transactions.map((transaction, index) => (
             <li key={index} className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <span
-                  className={`icon ${transaction.method}`}
+                  className={`icon mr-2 ${transaction.method}`}
                   style={{
                     backgroundImage: `url(${require(`../assets/transactions/${transaction.method}.svg`)})`,
                   }}
