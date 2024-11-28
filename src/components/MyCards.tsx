@@ -1,35 +1,36 @@
 import React from 'react';
 import CardDetails from './CardDetails';
 
-const MyCards: React.FC = () => {
-  const cards = [
-    {
-      cardholderName: 'John Doe',
-      cardNumber: '1234567890123456',
-      balance: 230.45,
-    },
-    {
-      cardholderName: 'Jane Smith',
-      cardNumber: '9876543210987654',
-      balance: 1500.75,
-    },
-    {
-      cardholderName: 'Alice Brown',
-      cardNumber: '1122334455667788',
-      balance: 500.2,
-    },
-  ];
+const cardsList = [
+  {
+    cardholderName: 'Eddy Cusuma',
+    cardNumber: '3778567890121234',
+    balance: 5756,
+    validDate: '12/20',
+    theme: 'dark',
+  },
+  {
+    cardholderName: 'Eddy Cusuma',
+    cardNumber: '3778567890121234',
+    balance: 5756,
+    validDate: '12/20',
+    theme: 'light',
+  },
+];
 
+const MyCards: React.FC = () => {
   return (
     <div className="my-cards">
       <h2 className="text-xl font-semibold mb-4">My Cards</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {cards.map((card, index) => (
+        {cardsList.map((card, index) => (
           <CardDetails
             key={index}
             cardholderName={card.cardholderName}
             cardNumber={card.cardNumber}
             balance={card.balance}
+            validDate={card.validDate}
+            theme={card.theme}
           />
         ))}
       </div>

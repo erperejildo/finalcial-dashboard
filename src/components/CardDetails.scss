@@ -4,6 +4,85 @@
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+
+  .balance,
+  .card-info > div > div:first-child {
+    font-weight: normal;
+  }
+
+  &.card-dark {
+    background-image: linear-gradient(to right, #565569, #0e0e11);
+    color: #fff;
+
+    .card-info {
+      & > div > div:first-child {
+        color: var(--medium-grey);
+      }
+    }
+
+    .card-footer {
+      background-image: linear-gradient(to right, #616070, #161616);
+    }
+
+    .card-circle {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &.card-light {
+    color: var(--dark-blue);
+
+    .balance {
+      color: var(--light-blue);
+    }
+
+    .chip {
+      filter: invert(100%);
+    }
+
+    .card-info {
+      & > div > div:first-child {
+        color: var(--light-blue);
+      }
+    }
+
+    .card-footer {
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .card-circle {
+      background-color: rgba(128, 128, 128, 0.5);
+    }
+  }
+
+  .card-footer {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    padding: 0.8rem 1.5rem;
+
+    .card-circle {
+      padding: 15px;
+      border-radius: 50%;
+
+      &:last-child {
+        margin-left: -15px;
+      }
+    }
+  }
+
+  .card-info {
+    display: flex;
+    gap: 20px;
+
+    > * {
+      flex: 1 1 50%;
+    }
+  }
 
   h2 {
     color: #333;
