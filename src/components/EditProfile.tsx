@@ -37,7 +37,7 @@ const EditProfile: React.FC = () => {
 
   return (
     <div className="edit-profile">
-      <h2>Edit Profile</h2>
+      <h3>Edit Profile</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>

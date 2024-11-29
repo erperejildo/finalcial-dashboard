@@ -42,7 +42,7 @@ const ActivityChart: React.FC = () => {
 
   return (
     <div className="activity-chart">
-      <h2>Weekly Activity</h2>
+      <h3>Weekly Activity</h3>
       <Line data={data} />
     </div>
   );

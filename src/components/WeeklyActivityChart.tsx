@@ -52,6 +52,7 @@ const options = {
         color: '#718ebf',
       },
     },
+    datalabels: { display: false },
   },
   scales: {
     x: {
@@ -67,7 +68,6 @@ const options = {
     y: {
       border: { display: false },
       grid: {
-        display: true,
         color: '#f3f3f5',
       },
       ticks: {

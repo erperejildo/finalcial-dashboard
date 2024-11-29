@@ -22,24 +22,92 @@ ChartJS.register(
   Legend
 );
 
-const BalanceHistoryChart: React.FC = () => {
-  const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-    datasets: [
-      {
-        label: 'Balance Over Time',
-        data: [1200, 1800, 2200, 1600, 2100, 2500, 2700],
-        borderColor: '#3498db',
-        backgroundColor: 'rgba(52, 152, 219, 0.2)',
-        fill: true,
-      },
-    ],
-  };
+const data = {
+  labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+  datasets: [
+    {
+      lineTension: 0.5,
+      label: 'Balance Over Time',
+      data: [150, 220, 442, 780, 200, 590, 610],
+      borderColor: '#1814f3',
+    },
+  ],
+};
 
+const options = {
+  categoryPercentage: 0.6,
+  barPercentage: 0.6,
+  responsive: true,
+  borderSkipped: false,
+  borderRadius: 10,
+  elements: {
+    point: {
+      radius: 0,
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+    datalabels: { display: false },
+  },
+  scales: {
+    x: {
+      border: { display: false, dash: [4, 4] },
+      grid: {
+        color: '#dfe5ee',
+      },
+      ticks: {
+        color: '#718ebf',
+        padding: 10,
+      },
+    },
+    y: {
+      border: { display: false, dash: [4, 4] },
+      grid: {
+        color: '#dfe5ee',
+      },
+      ticks: {
+        color: '#718ebf',
+        padding: 20,
+        font: {
+          size: 14,
+          family: 'Segoe UI',
+        },
+      },
+    },
+  },
+};
+
+// NOTE: I tried to add the line shadow, but the effect is not quite the same
+// I left this commented code as a reference
+
+// const myPlugin = {
+//   id: 'customShadow',
+//   beforeDraw: (chart: any) => {
+//     const ctx = chart.ctx;
+//     ctx.save();
+
+//     const originalLineDraw = ctx.stroke;
+//     ctx.stroke = function () {
+//       ctx.save();
+//       ctx.shadowColor = 'rgb(24,20,243, 0.2)';
+//       console.log(ctx);
+//       ctx.shadowBlur = 2;
+//       ctx.shadowOffsetY = 4;
+//       originalLineDraw.apply(this, arguments);
+//       ctx.restore();
+//     };
+//   },
+// };
+
+const BalanceHistoryChart: React.FC = () => {
   return (
     <div className="balance-history-chart">
-      <h2>Balance History</h2>
-      <Line data={data} />
+      <h3 className="font-semibold text-xl mb-4">Balance History</h3>
+      <div className="chart-container rounded-xxl bg-white p-5">
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };
