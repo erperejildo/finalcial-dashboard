@@ -157,7 +157,7 @@ const QuickTransfer: React.FC = () => {
           <div className="w-full bg-gray-100 rounded-full flex items-center">
             <input
               type="number"
-              className="flex-1 pl-6 text-sm border-none outline-none"
+              className="flex-1 text-sm border-none outline-none"
             />
             <button className="bg-black text-white text-sm font-bold py-2 px-6 rounded-full flex items-center">
               Send

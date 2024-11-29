@@ -68,8 +68,9 @@ const options = {
         color: '#dfe5ee',
       },
       ticks: {
+        min: 0,
+        stepSize: 200,
         color: '#718ebf',
-        padding: 20,
         font: {
           size: 14,
           family: 'Segoe UI',
