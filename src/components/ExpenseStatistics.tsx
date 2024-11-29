@@ -71,7 +71,7 @@ const ExpenseStatistics: React.FC = () => {
   return (
     <div className="expense-statistics component">
       <h3 className="font-semibold text-xl mb-4">Expense Statistics</h3>
-      <div className="chart-container rounded-xxl bg-white p-5">
+      <div className="chart-container rounded-xxl p-5">
         <Pie data={data} options={options} />
       </div>
     </div>

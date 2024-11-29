@@ -15,8 +15,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  color: var(--primary-color);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--dark-blue);
 }
 
 .rounded-xxl {
@@ -54,5 +59,9 @@ canvas {
     height: 100%;
     display: flex;
     align-items: center;
+
+    @media (min-width: 768px) {
+      background-color: white;
+    }
   }
 }

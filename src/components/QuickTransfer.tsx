@@ -101,8 +101,8 @@ const QuickTransfer: React.FC = () => {
   return (
     <div className="quick-transfer component">
       <h3 className="font-semibold text-xl mb-4">Quick Transfer</h3>
-      <div className="rounded-xxl bg-white p-5">
-        <div className="quick-transfer component rounded-xxl bg-white">
+      <div className="rounded-xxl p-5">
+        <div className="quick-transfer component rounded-xxl">
           <div className="contacts-container mb-4 gap-5">
             {showArrows && (
               <button
@@ -168,7 +168,7 @@ const QuickTransfer: React.FC = () => {
 
           <div className="amount-container input-group flex items-center">
             <span className="whitespace-nowrap">Write Amount</span>
-            <div className="w-full bg-gray-100 rounded-full flex items-center justify-between">
+            <div className="amount-input-container w-full rounded-full flex items-center justify-between">
               <input
                 type="number"
                 placeholder="Amount"
