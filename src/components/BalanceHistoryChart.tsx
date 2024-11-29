@@ -68,7 +68,6 @@ const options = {
         color: '#dfe5ee',
       },
       ticks: {
-        min: 0,
         stepSize: 200,
         color: '#718ebf',
         font: {
@@ -104,12 +103,14 @@ const options = {
 
 const BalanceHistoryChart: React.FC = () => {
   return (
-    <div className="balance-history-chart">
+    <>
       <h3 className="font-semibold text-xl mb-4">Balance History</h3>
-      <div className="chart-container rounded-xxl bg-white p-5">
-        <Line data={data} options={options} />
+      <div className="balance-history-chart component">
+        <div className="chart-container rounded-xxl bg-white p-5">
+          <Line data={data} options={options} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

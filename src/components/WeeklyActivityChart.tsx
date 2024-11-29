@@ -71,6 +71,7 @@ const options = {
         color: '#f3f3f5',
       },
       ticks: {
+        stepSize: 100,
         color: '#718ebf',
         padding: 20,
         font: {

@@ -31,6 +31,8 @@ const data = {
   ],
 };
 
+const mobileSize = 500;
+
 const options = {
   responsive: true,
   borderWidth: 4,
@@ -39,6 +41,7 @@ const options = {
       color: 'white',
       formatter: (value: any, ctx: any) => {
         const label = ctx.chart.data.labels[ctx.dataIndex];
+        if (window.innerWidth < mobileSize) return '';
         return `${value}%\n${label}`;
       },
       font: {
@@ -49,7 +52,14 @@ const options = {
       textAlign: 'center' as 'center',
     },
     legend: {
-      display: false,
+      display: window.innerWidth < mobileSize ? true : false,
+      align: 'end' as 'start' | 'center' | 'end',
+      labels: {
+        usePointStyle: true,
+        pointStyle: 'circle',
+        pointRadius: 15,
+        color: '#718ebf',
+      },
     },
   },
   layout: {
