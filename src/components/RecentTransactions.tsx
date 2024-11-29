@@ -28,6 +28,19 @@ const transactions: Transaction[] = [
     amount: 5400,
     method: 'other',
   },
+  // NOTE: addapted to show multiple cards. Uncomment to test:
+  // {
+  //   description: 'Deposit PayPal',
+  //   date: '2021-01-25',
+  //   amount: 2500,
+  //   method: 'paypal',
+  // },
+  // {
+  //   description: 'Monthly Rent',
+  //   date: '2021-01-21',
+  //   amount: 5400,
+  //   method: 'other',
+  // },
 ];
 
 const RecentTransactions: React.FC = () => {
@@ -39,7 +52,10 @@ const RecentTransactions: React.FC = () => {
     return `${day} ${month} ${year}`;
   };
 
-  const formatAmount = (amount: number): string => {
+  const formatAmount = (
+    amount: number,
+    inline: boolean = false
+  ): JSX.Element => {
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -47,17 +63,25 @@ const RecentTransactions: React.FC = () => {
       maximumFractionDigits: 2,
     });
 
-    return `${amount < 0 ? '-' : '+'}${formatter.format(Math.abs(amount))}`;
+    return (
+      <span
+        className={`font-semibold text-lg ${
+          amount < 0 ? 'text-red-500' : 'text-green-500'
+        } ${inline ? 'column-amount' : 'row-amount'}`}
+      >
+        {`${amount < 0 ? '-' : '+'}${formatter.format(Math.abs(amount))}`}
+      </span>
+    );
   };
 
   return (
-    <div className="recent-transactions">
+    <div className="recent-transactions component">
       <h3 className="font-semibold text-xl mb-4">Recent Transactions</h3>
       <div className="container bg-white p-5 rounded-xxl">
         <ul className="space-y-4">
           {transactions.map((transaction, index) => (
             <li key={index} className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-start space-x-2">
                 <span
                   className={`icon mr-2 ${transaction.method}`}
                   style={{
@@ -68,16 +92,13 @@ const RecentTransactions: React.FC = () => {
                   <p className="text-m font-medium mb-1">
                     {transaction.description}
                   </p>
+                  {formatAmount(transaction.amount)}
                   <p className="text-sm text-gray-500">
                     {formatDate(transaction.date)}
                   </p>
                 </div>
               </div>
-              <span
-                className={`font-semibold	text-lg ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`}
-              >
-                {formatAmount(transaction.amount)}
-              </span>
+              {formatAmount(transaction.amount, true)}
             </li>
           ))}
         </ul>

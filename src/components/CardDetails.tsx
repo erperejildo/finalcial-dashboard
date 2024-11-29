@@ -20,7 +20,7 @@ const CardDetails: React.FC<CardDetailsProps> = ({
 
   return (
     <div
-      className={`card-${theme} card-details p-0 border border-gray-200 rounded-xxl shadow-sm mb-4`}
+      className={`card-${theme} h-full card-details p-0 border border-gray-200 rounded-xxl shadow-sm mr-6`}
     >
       <div className="p-6">
         <div className="flex justify-between gap-4">
