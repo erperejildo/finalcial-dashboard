@@ -1,6 +1,7 @@
 nav {
   background-color: #fff;
   border-right: 1px solid var(--border);
+  width: 16rem;
 
   .task {
     display: flex;
@@ -10,12 +11,21 @@ nav {
     font-weight: bold;
     font-size: 1.5rem;
     gap: 10px;
+    padding: 1.25rem 2.5rem;
+    white-space: nowrap;
   }
 
   li {
     position: relative;
     color: #b1b1b1;
-    padding: 0.75rem 2rem 0.75rem 2.5rem;
+    display: flex;
+
+    a {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      padding-left: 2.5rem;
+      white-space: nowrap;
+    }
   }
 
   .marker {

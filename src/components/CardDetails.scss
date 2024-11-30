@@ -24,6 +24,10 @@
       }
     }
 
+    .chip {
+      filter: contrast(0%) brightness(2);
+    }
+
     .card-footer {
       background-image: linear-gradient(to right, #616070, #161616);
     }
@@ -38,10 +42,6 @@
 
     .balance {
       color: var(--light-blue);
-    }
-
-    .chip {
-      filter: invert(100%);
     }
 
     .card-info {

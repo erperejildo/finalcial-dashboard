@@ -8,7 +8,6 @@ interface Transaction {
   method: string;
 }
 
-// NOTE: addapted to show multiple transactions
 const transactions: Transaction[] = [
   {
     description: 'Deposit from my Card',

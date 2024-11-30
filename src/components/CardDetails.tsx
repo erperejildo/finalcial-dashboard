@@ -1,4 +1,5 @@
 import React from 'react';
+import CardChip from '../assets/icons/card_chip.svg';
 import './CardDetails.scss';
 
 interface CardDetailsProps {
@@ -23,18 +24,12 @@ const CardDetails: React.FC<CardDetailsProps> = ({
       className={`card-${theme} h-full card-details p-0 border border-gray-200 rounded-xxl shadow-sm mr-6`}
     >
       <div className="p-6">
-        <div className="flex justify-between gap-4">
+        <div className="flex align-items-center justify-between gap-4">
           <div>
             <div className="balance text-xs">Balance</div>
             <div className="text-lg">${balance.toFixed(2)}</div>
           </div>
-          <div>
-            <img
-              src={require('../assets/icons/chip_white.png')}
-              alt="Card Chip"
-              className="chip w-10"
-            />
-          </div>
+          <img src={CardChip} alt="Card chip" className="icon chip" />
         </div>
         <div className="card-info">
           <div>
