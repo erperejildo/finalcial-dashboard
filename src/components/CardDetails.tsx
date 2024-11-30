@@ -30,7 +30,7 @@ const CardDetails: React.FC<CardDetailsProps> = ({
           </div>
           <div>
             <img
-              src={require('../assets/chip_white.png')}
+              src={require('../assets/icons/chip_white.png')}
               alt="Card Chip"
               className="chip w-10"
             />

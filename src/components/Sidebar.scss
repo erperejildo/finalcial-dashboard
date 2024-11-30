@@ -1,0 +1,43 @@
+nav {
+  background-color: #fff;
+  border-right: 1px solid var(--border);
+
+  .task {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: #343c6a;
+    font-weight: bold;
+    font-size: 1.5rem;
+    gap: 10px;
+  }
+
+  li {
+    position: relative;
+    color: #b1b1b1;
+    padding: 0.75rem 2rem 0.75rem 2.5rem;
+  }
+
+  .marker {
+    width: 10px;
+    height: 100%;
+    background-color: #232323;
+    position: absolute;
+    top: 0;
+    left: -5px;
+    border-radius: 1rem;
+  }
+
+  .icon {
+    margin-right: 0.5rem;
+    filter: brightness(100%);
+  }
+
+  .active {
+    color: #232323;
+
+    .icon {
+      filter: brightness(0%);
+    }
+  }
+}

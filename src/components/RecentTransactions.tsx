@@ -85,7 +85,7 @@ const RecentTransactions: React.FC = () => {
                 <span
                   className={`icon mr-2 ${transaction.method}`}
                   style={{
-                    backgroundImage: `url(${require(`../assets/transactions/${transaction.method}.svg`)})`,
+                    backgroundImage: `url(${require(`../assets/icons/transactions/${transaction.method}.svg`)})`,
                   }}
                 ></span>
                 <div>
