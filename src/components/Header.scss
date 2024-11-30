@@ -22,6 +22,7 @@ $breakpoint: 1000px;
       width: 100%;
 
       .avatar {
+        width: 2.5rem;
         display: block;
       }
     }
@@ -54,7 +55,7 @@ $breakpoint: 1000px;
     gap: 1.25rem;
 
     .relative {
-      z-index: -1;
+      // z-index: -1;
     }
 
     button {
@@ -64,7 +65,7 @@ $breakpoint: 1000px;
       background-color: var(--background-color);
 
       &:hover {
-        background-color: var(--border);
+        background-color: var(--border-color);
       }
 
       img {

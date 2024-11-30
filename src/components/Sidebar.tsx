@@ -36,13 +36,11 @@ const Sidebar: React.FC = () => {
 
   return (
     <>
-      {/* Sidebar with backdrop */}
       <div
         className={`inset-0 z-40 flex transition-transform ${
           isOpen ? '' : '-translate-x-full sm:translate-x-0'
         }`}
       >
-        {/* Sidebar */}
         <nav
           className="sidebar fixed top-0 left-0 z-50 h-screen class"
           aria-label="Sidebar"
@@ -79,7 +77,6 @@ const Sidebar: React.FC = () => {
           </div>
         </nav>
 
-        {/* Backdrop for mobile */}
         {isOpen && (
           <div
             className="fixed inset-0 z-30 bg-black bg-opacity-50 sm:hidden"
@@ -88,8 +85,7 @@ const Sidebar: React.FC = () => {
         )}
       </div>
 
-      {/* Main content */}
-      <div className="sm:ml-64 w-full">
+      <div className="main-content">
         <div className="header-container flex gap-4 p-6 md:py-6 md:px-8">
           <Header onToggleSidebar={toggleSidebar} />
         </div>
