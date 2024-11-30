@@ -89,7 +89,7 @@ const Sidebar: React.FC = () => {
       </div>
 
       {/* Main content */}
-      <div className="sm:ml-64">
+      <div className="sm:ml-64 w-full">
         <div className="header-container flex gap-4 p-6 md:py-6 md:px-8">
           <Header onToggleSidebar={toggleSidebar} />
         </div>
@@ -97,6 +97,10 @@ const Sidebar: React.FC = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/settings" element={<Settings />} />
+          <Route
+            path="*"
+            element={<div className="p-6">Nothing to see here</div>}
+          />
         </Routes>
       </div>
     </>

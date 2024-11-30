@@ -10,7 +10,7 @@ import './Dashboard.scss';
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="dashboard py-4 px-6  md:py-6 md:px-10">
+    <div className="dashboard py-4 px-6 md:py-6 md:px-10">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
         <div className="md:col-span-6">
           <MyCards />
