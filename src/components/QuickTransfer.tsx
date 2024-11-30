@@ -100,7 +100,7 @@ const QuickTransfer: React.FC = () => {
 
   return (
     <div className="quick-transfer component">
-      <h3 className="font-semibold text-xl mb-4">Quick Transfer</h3>
+      <h2 className="text-2xl font-semibold mb-4">Quick Transfer</h2>
       <div className="rounded-xxl p-5">
         <div className="contacts-container gap-5">
           {showArrows && (

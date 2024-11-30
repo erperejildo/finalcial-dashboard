@@ -70,7 +70,7 @@ const options = {
 const ExpenseStatistics: React.FC = () => {
   return (
     <div className="expense-statistics component">
-      <h3 className="font-semibold text-xl mb-4">Expense Statistics</h3>
+      <h2 className="text-2xl font-semibold mb-4">Expense Statistics</h2>
       <div className="chart-container rounded-xxl p-5">
         <Pie data={data} options={options} />
       </div>

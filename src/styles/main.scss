@@ -8,13 +8,6 @@
   padding: 1rem;
 }
 
-.dashboard {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 h1,
 h2,
 h3,
@@ -26,22 +19,6 @@ h6 {
 
 .rounded-xxl {
   border-radius: 1.5rem;
-}
-
-.component-name-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-
-  span {
-    cursor: pointer;
-    font-weight: 600;
-  }
-}
-
-.dashboard {
-  background-color: var(--background-color);
 }
 
 canvas {

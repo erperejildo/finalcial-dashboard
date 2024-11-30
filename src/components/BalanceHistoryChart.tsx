@@ -104,7 +104,7 @@ const options = {
 const BalanceHistoryChart: React.FC = () => {
   return (
     <div className="balance-history-chart component">
-      <h3 className="font-semibold text-xl mb-4">Balance History</h3>
+      <h2 className="text-2xl font-semibold mb-4">Balance History</h2>
       <div className="chart-container rounded-xxl">
         <Line data={data} options={options} />
       </div>

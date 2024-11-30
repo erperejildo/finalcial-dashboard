@@ -1,0 +1,10 @@
+.component-name-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    cursor: pointer;
+    font-weight: 600;
+  }
+}

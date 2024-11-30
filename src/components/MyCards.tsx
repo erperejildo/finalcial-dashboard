@@ -1,5 +1,6 @@
 import React from 'react';
 import CardDetails from './CardDetails';
+import './MyCards.scss';
 
 const cardsList = [
   {
@@ -36,8 +37,8 @@ const cardsList = [
 const MyCards: React.FC = () => {
   return (
     <div className="my-cards component">
-      <div className="component-name-button">
-        <h3 className="text-xl font-semibold">My Cards</h3>
+      <div className="component-name-button mb-4">
+        <h2 className="text-2xl font-semibold">My Cards</h2>
         <span>See All</span>
       </div>
       <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-4 overflow-x-auto whitespace-nowrap">

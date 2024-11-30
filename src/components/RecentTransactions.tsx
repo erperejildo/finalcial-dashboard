@@ -75,7 +75,7 @@ const RecentTransactions: React.FC = () => {
 
   return (
     <div className="recent-transactions component">
-      <h3 className="font-semibold text-xl mb-4">Recent Transactions</h3>
+      <h2 className="text-2xl font-semibold mb-4">Recent Transactions</h2>
       <div className="container p-5 rounded-xxl">
         <ul className="space-y-4">
           {transactions.map((transaction, index) => (

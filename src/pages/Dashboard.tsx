@@ -6,12 +6,11 @@ import MyCards from '../components/MyCards';
 import QuickTransfer from '../components/QuickTransfer';
 import RecentTransactions from '../components/RecentTransactions';
 import WeeklyActivityChart from '../components/WeeklyActivityChart';
+import './Dashboard.scss';
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="dashboard p-4 md:p-8">
-      <h1 className="text-xl md:text-3xl font-semibold mb-6">Dashboard</h1>
-
+    <div className="dashboard py-4 px-6  md:py-6 md:px-10">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <div className="md:col-span-2">
           <MyCards />
