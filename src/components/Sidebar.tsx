@@ -50,7 +50,7 @@ const Sidebar: React.FC = () => {
         >
           <div className="h-full overflow-y-auto">
             <ul className="space-y-2 font-medium">
-              <li className="task cursor-pointer" onClick={toggleSidebar}>
+              <li className="task cursor-pointer p-8" onClick={toggleSidebar}>
                 <img src={TaskIcon} alt="Soar Task" className="icon" />
                 Soar Task
               </li>
@@ -67,7 +67,11 @@ const Sidebar: React.FC = () => {
                     onClick={closeSidebar}
                     className="flex items-center group"
                   >
-                    <img src={route.icon} alt={route.name} className="icon" />
+                    <img
+                      src={route.icon}
+                      alt={route.name + ' icon'}
+                      className="icon"
+                    />
                     <span className="ms-3">{route.name}</span>
                   </Link>
                 </li>
@@ -87,12 +91,12 @@ const Sidebar: React.FC = () => {
 
       {/* Main content */}
       <div className="sm:ml-64">
-        <div className="flex p-3">
+        <div className="header-container flex gap-4 p-4 md:py-6 md:px-8">
           {/* Mobile toggle button */}
           <button
             onClick={toggleSidebar}
             type="button"
-            className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           >
             <span className="sr-only">Open sidebar</span>
             <svg

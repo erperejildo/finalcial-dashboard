@@ -1,0 +1,39 @@
+.header {
+  .pathname {
+    color: var(--dark-blue);
+  }
+
+  .search-icon {
+    padding-inline-start: 1.75rem;
+    cursor: pointer;
+  }
+
+  input {
+    padding-inline-start: 4.25rem;
+    color: #8ba3cb;
+    background-color: var(--background-color);
+
+    &::placeholder {
+      color: #8ba3cb;
+    }
+  }
+
+  button {
+    height: 3.2rem;
+    width: 3.2rem;
+    padding: 0.8rem;
+    background-color: var(--background-color);
+
+    &:hover {
+      background-color: var(--border);
+    }
+
+    img {
+      margin: auto;
+    }
+  }
+
+  .avatar {
+    width: 4.5rem;
+  }
+}

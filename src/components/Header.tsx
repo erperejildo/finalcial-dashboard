@@ -1,6 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import './Sidebar.scss';
+import NotificationsIcon from '../assets/icons/header/notifications.svg';
+import SearchIcon from '../assets/icons/header/search.svg';
+import SettingsIcon from '../assets/icons/header/settings.svg';
+import './Header.scss';
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -22,48 +25,49 @@ const Header: React.FC = () => {
 
   return (
     <div className="header flex items-center justify-between w-full">
-      <span>{getPathname()}</span>
-      <div className="group flex space-x-2">
+      <h1 className="pathname text-3xl font-semibold">{getPathname()}</h1>
+      <div className="group flex items-center gap-5 space-x-2">
         <form className="max-w-md mx-auto">
           <label
             htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            className="mb-2 text-sm font-medium sr-only"
           >
             Search
           </label>
           <div className="relative">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-              <svg
-                className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
+            <div className="search-icon absolute inset-y-0 start-0 flex items-center">
+              <img src={SearchIcon} alt="Search Icon" />
             </div>
             <input
               type="search"
               id="default-search"
-              className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search Mockups, Logos..."
+              className="block w-full p-4 text-sm rounded-xxl"
+              placeholder="Search for something"
               required
             />
-            <button
-              type="submit"
-              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Search
-            </button>
           </div>
         </form>
+
+        <button
+          type="button"
+          className="focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-full dark:border-blue-500 dark:focus:ring-blue-800 dark:hover:bg-blue-500"
+        >
+          <img src={SettingsIcon} alt="Settings Icon" />
+          <span className="sr-only">Icon description</span>
+        </button>
+        <button
+          type="button"
+          className="focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-full dark:border-blue-500 dark:focus:ring-blue-800 dark:hover:bg-blue-500"
+        >
+          <img src={NotificationsIcon} alt="Notifications Icon" />
+          <span className="sr-only">Icon description</span>
+        </button>
+
+        <img
+          className="avatar rounded-full"
+          src="https://i.pravatar.cc/100?img=7"
+          alt="Avatar"
+        />
       </div>
     </div>
   );
