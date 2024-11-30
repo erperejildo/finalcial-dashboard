@@ -48,17 +48,11 @@ const Header: React.FC = () => {
           </div>
         </form>
 
-        <button
-          type="button"
-          className="focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-full dark:border-blue-500 dark:focus:ring-blue-800 dark:hover:bg-blue-500"
-        >
+        <button type="button" className="rounded-full">
           <img src={SettingsIcon} alt="Settings Icon" />
           <span className="sr-only">Icon description</span>
         </button>
-        <button
-          type="button"
-          className="focus:ring-2 focus:outline-none focus:ring-blue-300 rounded-full dark:border-blue-500 dark:focus:ring-blue-800 dark:hover:bg-blue-500"
-        >
+        <button type="button" className="rounded-full">
           <img src={NotificationsIcon} alt="Notifications Icon" />
           <span className="sr-only">Icon description</span>
         </button>
