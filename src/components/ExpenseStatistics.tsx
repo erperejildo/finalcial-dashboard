@@ -31,7 +31,7 @@ const data = {
   ],
 };
 
-const mobileSize = 500;
+const mobileSize = 800;
 
 const options = {
   responsive: true,

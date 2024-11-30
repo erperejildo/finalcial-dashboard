@@ -1,39 +1,102 @@
+$breakpoint: 1000px;
+
 .header {
-  .pathname {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+
+    h1 {
+      font-size: 1.3rem;
+    }
+  }
+
+  .pathname-group {
     color: var(--dark-blue);
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+
+      .avatar {
+        display: block;
+      }
+    }
   }
 
   .search-icon {
     padding-inline-start: 1.75rem;
     cursor: pointer;
+
+    @media (max-width: $breakpoint) {
+      padding-inline-start: 1em;
+    }
   }
 
   input {
-    padding-inline-start: 4.25rem;
     color: #8ba3cb;
     background-color: var(--background-color);
+    padding: 1rem 1rem 1rem 4rem;
+
+    @media (max-width: $breakpoint) {
+      padding: 0.5rem 0.5rem 0.5rem 3rem;
+    }
 
     &::placeholder {
       color: #8ba3cb;
     }
   }
 
-  button {
-    height: 3.2rem;
-    width: 3.2rem;
-    padding: 0.8rem;
-    background-color: var(--background-color);
+  .buttons-group {
+    gap: 1.25rem;
 
-    &:hover {
-      background-color: var(--border);
+    .relative {
+      z-index: -1;
     }
 
-    img {
-      margin: auto;
+    button {
+      height: 3.2rem;
+      width: 3.2rem;
+      padding: 0.8rem;
+      background-color: var(--background-color);
+
+      &:hover {
+        background-color: var(--border);
+      }
+
+      img {
+        margin: auto;
+      }
+    }
+
+    @media (max-width: $breakpoint) {
+      gap: 0.5rem;
+
+      button {
+        height: 2.5rem;
+        width: 2.5rem;
+        padding: 0.7rem;
+      }
     }
   }
 
   .avatar {
     width: 4.5rem;
+    display: none;
+  }
+
+  .buttons-group {
+    @media (min-width: $breakpoint) {
+      .avatar {
+        display: block;
+      }
+    }
+
+    @media (max-width: $breakpoint) {
+      width: 100%;
+    }
   }
 }

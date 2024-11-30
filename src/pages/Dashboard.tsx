@@ -11,23 +11,23 @@ import './Dashboard.scss';
 const Dashboard: React.FC = () => {
   return (
     <div className="dashboard py-4 px-6  md:py-6 md:px-10">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div className="md:col-span-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
+        <div className="md:col-span-6">
           <MyCards />
         </div>
-        <div className="md:col-span-1">
+        <div className="md:col-span-6">
           <RecentTransactions />
         </div>
-        <div className="md:col-span-2">
+        <div className="md:col-span-8">
           <WeeklyActivityChart />
         </div>
-        <div className="md:col-span-1">
+        <div className="md:col-span-4">
           <ExpenseStatistics />
         </div>
-        <div className="md:col-span-1">
+        <div className="md:col-span-6">
           <QuickTransfer />
         </div>
-        <div className="md:col-span-2">
+        <div className="md:col-span-6">
           <BalanceHistoryChart />
         </div>
       </div>

@@ -1,7 +1,11 @@
+.sidebar {
+  z-index: 1;
+}
+
 nav {
   background-color: #fff;
-  border-right: 1px solid var(--border);
   width: 16rem;
+  border-right: 1px solid var(--border);
 
   .task {
     display: flex;
@@ -53,5 +57,7 @@ nav {
 }
 
 .header-container {
-  border-bottom: 1px solid var(--border);
+  @media (min-width: 640px) {
+    border-bottom: 1px solid var(--border);
+  }
 }

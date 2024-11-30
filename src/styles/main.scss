@@ -42,3 +42,9 @@ canvas {
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .component h2 {
+    font-size: 1.3rem;
+  }
+}
