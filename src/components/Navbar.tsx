@@ -4,7 +4,7 @@ import './Navbar.scss';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar" aria-label="main navigation">
       <ul>
         <li>
           <Link to="/">Dashboard</Link>

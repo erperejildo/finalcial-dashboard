@@ -35,8 +35,8 @@ const Header: React.FC<Props> = ({ onToggleSidebar }) => {
           onClick={onToggleSidebar}
           type="button"
           className="bg-transparent rounded-full sm:hidden"
+          aria-label="Open sidebar"
         >
-          <span className="sr-only">Open sidebar</span>
           <img src={BarsIcon} alt="Open sidebar" className="icon" />
         </button>
 
@@ -44,11 +44,15 @@ const Header: React.FC<Props> = ({ onToggleSidebar }) => {
         <img
           className="avatar rounded-full"
           src="https://i.pravatar.cc/100?img=7"
-          alt="Avatar"
+          alt="User avatar"
         />
       </div>
       <div className="buttons-group flex items-center justify-between space-x-2">
-        <form className="max-w-md flex-1">
+        <form
+          className="max-w-md flex-1"
+          role="search"
+          aria-label="Search form"
+        >
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium sr-only"
@@ -64,24 +68,31 @@ const Header: React.FC<Props> = ({ onToggleSidebar }) => {
               id="default-search"
               className="block w-full text-sm rounded-xxl"
               placeholder="Search for something"
+              aria-label="Search input"
               required
             />
           </div>
         </form>
 
-        <button type="button" className="rounded-full">
+        <button
+          type="button"
+          className="rounded-full"
+          aria-label="Open settings"
+        >
           <img src={SettingsIcon} alt="Settings Icon" />
-          <span className="sr-only">Icon description</span>
         </button>
-        <button type="button" className="rounded-full">
+        <button
+          type="button"
+          className="rounded-full"
+          aria-label="View notifications"
+        >
           <img src={NotificationsIcon} alt="Notifications Icon" />
-          <span className="sr-only">Icon description</span>
         </button>
 
         <img
           className="avatar rounded-full"
           src="https://i.pravatar.cc/100?img=7"
-          alt="Avatar"
+          alt="User avatar"
         />
       </div>
     </div>

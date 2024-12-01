@@ -85,9 +85,13 @@ const options = {
 
 const WeeklyActivityChart: React.FC = () => {
   return (
-    <div className="weekly-activity-chart component">
+    <div
+      className="weekly-activity-chart component"
+      role="figure"
+      aria-label="Weekly Activity Chart"
+    >
       <h2 className="text-2xl font-semibold mb-4">Weekly Activity</h2>
-      <div className="chart-container rounded-xxl">
+      <div className="chart-container rounded-xxl" role="figure">
         <Bar data={data} options={options} />
       </div>
     </div>

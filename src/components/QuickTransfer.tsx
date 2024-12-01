@@ -107,6 +107,7 @@ const QuickTransfer: React.FC = () => {
             <button
               onClick={() => scrollContainer('left')}
               className={`${showLeftArrow ? '' : 'hidden-arrow'} arrow p-2 rounded-full`}
+              aria-label="Scroll left"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +116,8 @@ const QuickTransfer: React.FC = () => {
                 strokeWidth="2"
                 stroke="currentColor"
                 className="w-6 h-6"
+                role="img"
+                aria-label="Left arrow"
               >
                 <path d="M15 19l-7-7 7-7" />
               </svg>
@@ -123,6 +126,7 @@ const QuickTransfer: React.FC = () => {
           <div
             className={`contacts overflow-x-auto whitespace-nowrap ${showArrows ? 'overflow-hidden' : 'overflow-x-auto'}`}
             ref={containerRef}
+            tabIndex={0}
           >
             <div className="flex">
               {contacts.map((contact, index) => (
@@ -130,6 +134,15 @@ const QuickTransfer: React.FC = () => {
                   key={index}
                   className="contact"
                   onClick={() => selectContact(index)}
+                  onKeyDown={(event) => {
+                    if (event.key === ' ' || event.key === 'Enter') {
+                      event.preventDefault();
+                      selectContact(index);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={contact.name}
                 >
                   <img
                     src={contact.profilePicture}
@@ -150,6 +163,7 @@ const QuickTransfer: React.FC = () => {
             <button
               onClick={() => scrollContainer('right')}
               className={`${showRightArrow ? '' : 'hidden-arrow'} arrow p-2 rounded-full`}
+              aria-label="Scroll right"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -158,6 +172,8 @@ const QuickTransfer: React.FC = () => {
                 strokeWidth="2"
                 stroke="currentColor"
                 className="w-6 h-6"
+                role="img"
+                aria-label="Right arrow"
               >
                 <path d="M9 5l7 7-7 7" />
               </svg>
@@ -172,6 +188,7 @@ const QuickTransfer: React.FC = () => {
               type="number"
               placeholder="Amount"
               className="pl-6 pr-2 text-sm border-none outline-none flex-1"
+              aria-label="Amount input"
             />
             <button className="bg-black text-white text-sm font-bold py-2 px-6 rounded-full flex items-center">
               Send
@@ -184,6 +201,8 @@ const QuickTransfer: React.FC = () => {
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                role="img"
+                aria-label="Send icon"
               >
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" />

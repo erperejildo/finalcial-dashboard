@@ -74,7 +74,10 @@ const RecentTransactions: React.FC = () => {
   };
 
   return (
-    <div className="recent-transactions component">
+    <div
+      className="recent-transactions component"
+      aria-label="Recent Transactions"
+    >
       <h2 className="text-2xl font-semibold mb-4">Recent Transactions</h2>
       <div className="container p-5 rounded-xxl">
         <ul className="space-y-4">
@@ -83,6 +86,7 @@ const RecentTransactions: React.FC = () => {
               <div className="flex items-start space-x-2">
                 <span
                   className={`icon mr-2 ${transaction.method}`}
+                  aria-hidden="true"
                   style={{
                     backgroundImage: `url(${require(`../assets/icons/transactions/${transaction.method}.svg`)})`,
                   }}

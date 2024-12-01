@@ -46,8 +46,12 @@ const Sidebar: React.FC = () => {
           aria-label="Sidebar"
         >
           <div className="h-full overflow-y-auto">
-            <ul className="space-y-2 font-medium">
-              <li className="task cursor-pointer p-8" onClick={toggleSidebar}>
+            <ul className="space-y-2 font-medium" role="menubar">
+              <li
+                className="task cursor-pointer p-8"
+                onClick={toggleSidebar}
+                role="menuitem"
+              >
                 <img src={TaskIcon} alt="Soar Task" className="icon" />
                 Soar Task
               </li>
@@ -55,6 +59,7 @@ const Sidebar: React.FC = () => {
                 <li
                   key={route.name}
                   className={`${location.pathname === route.path ? 'active' : ''}`}
+                  role="menuitem"
                 >
                   {location.pathname === route.path && (
                     <div className="marker"></div>
@@ -63,6 +68,7 @@ const Sidebar: React.FC = () => {
                     to={route.path}
                     onClick={closeSidebar}
                     className="flex items-center group"
+                    role="menuitem"
                   >
                     <img
                       src={route.icon}
@@ -81,6 +87,8 @@ const Sidebar: React.FC = () => {
           <div
             className="fixed inset-0 z-30 bg-black bg-opacity-50 sm:hidden"
             onClick={closeSidebar}
+            role="button"
+            aria-label="Close sidebar"
           ></div>
         )}
       </div>

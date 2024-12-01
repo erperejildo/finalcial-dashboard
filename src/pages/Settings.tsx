@@ -24,18 +24,23 @@ const Settings: React.FC = () => {
 
   return (
     <div className="settings py-4 px-6 md:py-6 md:px-10">
-      <div className="settings-container rounded-xxl px-8 py-3 md:py-6">
-        <ul className="tabs flex mb-6">
+      <div className="settings-container rounded-xxl px-6 py-3">
+        <ul className="tabs flex mb-6" role="tablist">
           {tabData.map((tab) => (
             <li
               className={`tab ${activeTab === tab.target ? 'active' : ''}`}
               key={tab.target}
+              role="presentation"
             >
               <button
                 className="tab-link"
                 type="button"
                 data-target={tab.target}
                 onClick={handleTabClick}
+                role="tab"
+                aria-selected={activeTab === tab.target}
+                aria-controls={`tabpanel-${tab.target}`}
+                id={`tab-${tab.target}`}
               >
                 {tab.name}
               </button>
@@ -50,7 +55,10 @@ const Settings: React.FC = () => {
               className={`tab-panel ${activeTab === tab.target ? '' : 'hidden'}`}
               data-target={tab.target}
               role="tabpanel"
+              id={`tabpanel-${tab.target}`}
+              aria-labelledby={`tab-${tab.target}`}
               key={tab.target}
+              hidden={activeTab !== tab.target}
             >
               {tab.content}
             </div>

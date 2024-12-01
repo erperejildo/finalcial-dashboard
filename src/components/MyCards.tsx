@@ -36,13 +36,13 @@ const cardsList = [
 
 const MyCards: React.FC = () => {
   return (
-    <div className="my-cards component">
+    <div className="my-cards component" aria-label="My Cards list">
       <div className="component-name-button mb-4">
         <h2 className="text-2xl font-semibold">My Cards</h2>
         <span>See All</span>
       </div>
       <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-4 overflow-x-auto whitespace-nowrap">
-        <div className="flex">
+        <div className="flex" role="list">
           {cardsList.map((card, index) => (
             <CardDetails
               key={index}

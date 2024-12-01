@@ -69,9 +69,17 @@ const options = {
 
 const ExpenseStatistics: React.FC = () => {
   return (
-    <div className="expense-statistics component">
+    <div
+      className="expense-statistics component"
+      role="figure"
+      aria-label="Expense Statistics Chart"
+    >
       <h2 className="text-2xl font-semibold mb-4">Expense Statistics</h2>
-      <div className="chart-container rounded-xxl p-5">
+      <div
+        className="chart-container rounded-xxl p-5"
+        role="figure"
+        aria-label="Pie chart of expense statistics"
+      >
         <Pie data={data} options={options} />
       </div>
     </div>

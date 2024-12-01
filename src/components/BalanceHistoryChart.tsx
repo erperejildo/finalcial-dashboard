@@ -105,7 +105,11 @@ const BalanceHistoryChart: React.FC = () => {
   return (
     <div className="balance-history-chart component">
       <h2 className="text-2xl font-semibold mb-4">Balance History</h2>
-      <div className="chart-container rounded-xxl">
+      <div
+        className="chart-container rounded-xxl"
+        role="figure"
+        aria-label="Balance History Chart"
+      >
         <Line data={data} options={options} />
       </div>
     </div>
