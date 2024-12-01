@@ -37,7 +37,7 @@ const Sidebar: React.FC = () => {
   return (
     <>
       <div
-        className={`inset-0 z-40 flex transition-transform ${
+        className={`inset-0 z-40 flex ${
           isOpen ? '' : '-translate-x-full sm:translate-x-0'
         }`}
       >
