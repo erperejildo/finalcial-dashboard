@@ -1,20 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ProfileData } from '../interfaces/ProfileData';
 
-interface ProfileState {
-  name: string;
-  username: string;
-  email: string;
-  password: string;
-  dateOfBirth: string;
-  presentAddress: string;
-  permanentAddress: string;
-  city: string;
-  postalCode: string;
-  country: string;
-  profilePicture: string;
-}
-
-const initialState: ProfileState = {
+const initialState: ProfileData = {
   name: '',
   username: '',
   email: '',
@@ -25,14 +12,14 @@ const initialState: ProfileState = {
   city: '',
   postalCode: '',
   country: '',
-  profilePicture: '',
+  profilePicture: null,
 };
 
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setProfile: (state, action: PayloadAction<ProfileState>) => {
+    setProfile: (state, action: PayloadAction<ProfileData>) => {
       return action.payload;
     },
   },

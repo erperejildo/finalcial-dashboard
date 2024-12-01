@@ -1,27 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import EditIcon from '../assets/icons/edit.svg';
+import { ProfileData } from '../interfaces/ProfileData'; // Assuming you import this from where it's defined
 import { RootState } from '../store';
 import { setProfile } from '../store/profileSlice';
 import './EditProfile.scss';
 
-interface ProfileData {
-  name: string;
-  username: string;
-  email: string;
-  password: string;
-  dateOfBirth: string;
-  presentAddress: string;
-  permanentAddress: string;
-  city: string;
-  postalCode: string;
-  country: string;
-  profilePicture: string;
-}
-
 const EditProfile: React.FC = () => {
   const dispatch = useDispatch();
-
   const profileDataFromStore = useSelector((state: RootState) => state.profile);
 
   const [profileData, setProfileData] =
@@ -29,6 +15,9 @@ const EditProfile: React.FC = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [profilePicturePreview, setProfilePicturePreview] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     setProfileData(profileDataFromStore);
@@ -76,6 +65,7 @@ const EditProfile: React.FC = () => {
       //   body: JSON.stringify(profileData),
       // });
       // const result = await response.json();
+
       console.log('Profile updated:', profileData);
     } catch (error) {
       console.error('Failed to update profile', error);
@@ -87,6 +77,14 @@ const EditProfile: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setProfileData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    if (file) {
+      setProfileData((prev) => ({ ...prev, profilePicture: file }));
+      setProfilePicturePreview(URL.createObjectURL(file));
+    }
   };
 
   if (isLoading) {
@@ -116,18 +114,27 @@ const EditProfile: React.FC = () => {
   return (
     <div className="edit-profile py-6 px-4">
       <div className="container flex" aria-label="Edit profile form">
-        <div className="avatar mr-8">
+        <div className="avatar">
           <div className="relative">
             <img
-              className="rounded-full object-cover"
+              className="rounded-full person-img"
+              onClick={() =>
+                document.getElementById('profilePictureInput')?.click()
+              }
               src={
-                profileData.profilePicture || 'https://i.pravatar.cc/100?img=7'
+                profilePicturePreview ||
+                (profileData.profilePicture
+                  ? URL.createObjectURL(profileData.profilePicture)
+                  : 'https://i.pravatar.cc/100?img=7')
               }
               alt="Avatar"
               aria-label="Profile picture"
             />
             <button
               type="button"
+              onClick={() =>
+                document.getElementById('profilePictureInput')?.click()
+              }
               className="absolute bottom-0 right-0 bg-blue-600 rounded-full p-2"
               aria-label="Edit profile picture"
             >
@@ -208,33 +215,37 @@ const EditProfile: React.FC = () => {
                 {field.label}
               </label>
               <input
-                id={field.id}
                 type={field.type}
                 name={field.id}
-                value={profileData[field.id as keyof ProfileData]}
+                id={field.id}
+                value={field.id === 'profilePicture' ? '' : field.value}
                 onChange={handleChange}
-                className={`form-control block w-full p-2 border rounded-2xl ${
-                  errors[field.id] ? 'border-red-500' : 'border-gray-300'
-                }`}
-                aria-describedby={field.id}
+                className="form-control block w-full p-2 border rounded-2xl"
+                required
               />
               {errors[field.id] && (
-                <div className="error text-red-500 text-sm mt-1">
-                  {errors[field.id]}
-                </div>
+                <p className="text-red-500">{errors[field.id]}</p>
               )}
             </div>
           ))}
-          <div className="hidden-block"></div>
-          <div className="flex justify-end">
-            <button
-              type="submit"
-              className="save-button text-white text-lg focus:outline-none focus:ring-4 rounded-2xl py-2.5"
-              disabled={isSaving}
-            >
-              {isSaving ? 'Saving...' : 'Save'}
-            </button>
+
+          <div className="form-group">
+            <input
+              type="file"
+              id="profilePictureInput"
+              name="profilePicture"
+              accept="image/*"
+              onChange={handleFileChange}
+              style={{ display: 'none' }}
+            />
           </div>
+          <button
+            type="submit"
+            disabled={isSaving}
+            className="save-button text-white text-lg focus:outline-none focus:ring-4 rounded-2xl py-2.5"
+          >
+            {isSaving ? 'Saving...' : 'Save'}
+          </button>
         </form>
       </div>
     </div>
