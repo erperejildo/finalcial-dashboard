@@ -25,13 +25,13 @@ const data = {
   datasets: [
     {
       data: [15, 35, 20, 30],
-      backgroundColor: ['#fc7900', '#232323', '#396aff', '#343c6a'],
+      backgroundColor: ['#fc7900', '#2ecc71', '#396aff', '#343c6a'],
       hoverOffset: 30,
     },
   ],
 };
 
-const mobileSize = 800;
+const mobileSize = 400;
 
 const options = {
   responsive: true,

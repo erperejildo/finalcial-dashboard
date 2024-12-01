@@ -60,6 +60,8 @@ Similar to design.
 
 Again, this is not shown for mobile, and having the values on top of the pie, is not a good approach for small screens, so I added the legend and removed the values from the pie for those screens.
 
+Also changed a pie color to make it more clear visually.
+
 ### Quick Transfer
 
 This is the component that I changed the most. Design shows a vertically center arrow on the right. This implies that another one on the left should be displayed, but design didn't leave space on the left. I have followed this design, however, this reduces the space dramatically (specially for small screens), because we have arrow + contacts + arrow in same line.

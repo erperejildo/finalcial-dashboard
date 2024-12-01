@@ -27,10 +27,10 @@ const Dashboard: React.FC = () => {
         <div className="lg:col-span-4">
           <ExpenseStatistics />
         </div>
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-4">
           <QuickTransfer />
         </div>
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-8">
           <BalanceHistoryChart />
         </div>
       </div>

@@ -146,7 +146,7 @@ const QuickTransfer: React.FC = () => {
           )}
         </div>
 
-        <div className="amount-container input-group flex items-center">
+        <div className="amount-container input-group flex items-center justify-center">
           <span className="whitespace-nowrap">Write Amount</span>
           <div className="amount-input-container w-full rounded-full flex items-center justify-between">
             <input
