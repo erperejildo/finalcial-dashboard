@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import BarsIcon from '../assets/icons/bars.svg';
 import NotificationsIcon from '../assets/icons/header/notifications.svg';
 import SearchIcon from '../assets/icons/header/search.svg';
 import SettingsIcon from '../assets/icons/header/settings.svg';
+import { RootState } from '../store';
 import './Header.scss';
 
 type Props = {
@@ -11,7 +13,33 @@ type Props = {
 };
 
 const Header: React.FC<Props> = ({ onToggleSidebar }) => {
+  const profilePicture = useSelector(
+    (state: RootState) => state.profile.profilePicture
+  );
   const location = useLocation();
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (profilePicture instanceof File) {
+      const objectUrl = URL.createObjectURL(profilePicture);
+      setImageUrl(objectUrl);
+
+      return () => {
+        if (imageUrl) {
+          URL.revokeObjectURL(imageUrl);
+        }
+      };
+    } else {
+      setImageUrl(null);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profilePicture]);
+
+  const avatarSrc: string =
+    imageUrl ||
+    (typeof profilePicture === 'string'
+      ? profilePicture
+      : 'https://i.pravatar.cc/100?img=7');
 
   const getPathname = () => {
     if (location.pathname === '/') {
@@ -43,8 +71,9 @@ const Header: React.FC<Props> = ({ onToggleSidebar }) => {
         <h1>{getPathname()}</h1>
         <img
           className="avatar rounded-full"
-          src="https://i.pravatar.cc/100?img=7"
+          src={avatarSrc}
           alt="User avatar"
+          aria-label="User avatar"
         />
       </div>
       <div className="buttons-group flex items-center justify-between space-x-2">
@@ -91,8 +120,9 @@ const Header: React.FC<Props> = ({ onToggleSidebar }) => {
 
         <img
           className="avatar rounded-full"
-          src="https://i.pravatar.cc/100?img=7"
+          src={avatarSrc}
           alt="User avatar"
+          aria-label="User avatar"
         />
       </div>
     </div>

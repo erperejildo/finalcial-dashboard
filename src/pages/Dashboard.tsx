@@ -14,23 +14,23 @@ const Dashboard: React.FC = () => {
       role="main"
       tabIndex={-1}
     >
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
-        <div className="md:col-span-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        <div className="lg:col-span-8">
           <MyCards />
         </div>
-        <div className="md:col-span-6">
+        <div className="lg:col-span-4">
           <RecentTransactions />
         </div>
-        <div className="md:col-span-8">
+        <div className="lg:col-span-8">
           <WeeklyActivityChart />
         </div>
-        <div className="md:col-span-4">
+        <div className="lg:col-span-4">
           <ExpenseStatistics />
         </div>
-        <div className="md:col-span-6">
+        <div className="lg:col-span-6">
           <QuickTransfer />
         </div>
-        <div className="md:col-span-6">
+        <div className="lg:col-span-6">
           <BalanceHistoryChart />
         </div>
       </div>

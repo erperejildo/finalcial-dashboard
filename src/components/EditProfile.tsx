@@ -130,8 +130,8 @@ const EditProfile: React.FC = () => {
                   ? URL.createObjectURL(profileData.profilePicture)
                   : 'https://i.pravatar.cc/100?img=7')
               }
-              alt="Avatar"
-              aria-label="Profile picture"
+              alt="User avatar"
+              aria-label="User avatar"
             />
             <button
               type="button"

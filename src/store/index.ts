@@ -5,6 +5,13 @@ const store = configureStore({
   reducer: {
     profile: profileReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['profile/setProfile'],
+        ignoredPaths: ['profile.profilePicture'],
+      },
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
