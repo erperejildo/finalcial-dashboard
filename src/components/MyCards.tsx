@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useAlert } from '../services/AlertService';
 import CardDetails from './CardDetails';
 import './MyCards.scss';
 
@@ -35,14 +36,10 @@ const cardsList = [
 ];
 
 const MyCards: React.FC = () => {
-  const [showAlert, setShowAlert] = useState(false);
+  const { showAlert } = useAlert();
 
   const handleSeeAllClick = () => {
-    setShowAlert(true);
-
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 3000);
+    showAlert('You have clicked See All', 'info');
   };
 
   return (
@@ -53,13 +50,6 @@ const MyCards: React.FC = () => {
           See All
         </button>
       </div>
-
-      {showAlert && (
-        <div className="alert alert-info p-4 mb-4 rounded-md bg-blue-100 text-blue-800 border-l-4 border-blue-500">
-          <strong className="font-semibold">Info: </strong> You clicked "See
-          All".
-        </div>
-      )}
 
       <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-4 overflow-x-auto whitespace-nowrap">
         <div className="flex" role="list">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import EditIcon from '../assets/icons/edit.svg';
 import { ProfileData } from '../interfaces/ProfileData'; // Assuming you import this from where it's defined
+import { useAlert } from '../services/AlertService';
 import { RootState } from '../store';
 import { setProfile } from '../store/profileSlice';
 import './EditProfile.scss';
@@ -9,6 +10,7 @@ import './EditProfile.scss';
 const EditProfile: React.FC = () => {
   const dispatch = useDispatch();
   const profileDataFromStore = useSelector((state: RootState) => state.profile);
+  const { showAlert } = useAlert();
 
   const [profileData, setProfileData] =
     useState<ProfileData>(profileDataFromStore);
@@ -66,8 +68,9 @@ const EditProfile: React.FC = () => {
       // });
       // const result = await response.json();
 
-      console.log('Profile updated:', profileData);
+      showAlert('Profile saved successfully!', 'success');
     } catch (error) {
+      showAlert('Failed to save profile.', 'error');
       console.error('Failed to update profile', error);
     } finally {
       setIsSaving(false);
