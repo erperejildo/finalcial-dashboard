@@ -15,7 +15,7 @@ const EditProfile: React.FC = () => {
   const [profileData, setProfileData] =
     useState<ProfileData>(profileDataFromStore);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [profilePicturePreview, setProfilePicturePreview] = useState<
     string | null

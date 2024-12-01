@@ -27,11 +27,11 @@ I will explain them part by part.
 
 ## Sidebar
 
-The desing doesn't show up this looks like on mobile when it's open. I respected the desktop design, but made the Soar Task area clickable to hide the menu on mobile.
+The design doesn't show up this looks like on mobile when it's open. I respected the desktop design, but made the Soar Task area clickable to hide the menu on mobile.
 
 ## Header
 
-For desktop we have settings and notifications buttons, but the desing looses them when moving to smaller screens, so I though to make room for these 2 buttons as well. So instead of having a row with a full searchbar, I added these buttons for small screens too.
+For desktop we have settings and notifications buttons, but the design looses them when moving to smaller screens, so I thought to make room for these 2 buttons as well. So instead of having a row with a full searchbar, I added these buttons for small screens too.
 
 Avatar is updated after saving profile.
 
@@ -41,14 +41,17 @@ Here I chose [Chart.js](https://www.chartjs.org) for the graphics. These charts 
 
 # My Cards
 
-2 cards are shown but it is addapted to show multiple within an horizontal scroll. Since the instructions mentioned "appropriate feedback when clicked", the "See All" button just shows a simple message inside the component.
-In this component, you can find a comment with the text `NOTE`, so you can easily test it with more cards.
+2 cards are shown but it is adapted to show multiple within an horizontal scroll. Since the instructions mentioned "appropriate feedback when clicked", the "See All" button just shows a simple message inside the component.
+
+For this and next components, you can test it with more values. For that, go to /mocks or search for `NOTE`.
 
 This comment is added also in other components, so you can easily test mocks or different approaches as well.
 
+This component is calling a (fake) API returning the cards. It has a loading message, callback message in case something fails and also a button to retry the call. You can test with a longer delay and with a fail API (check in /mocks). As a example, this is only added to this component.
+
 # Recent Transactions
 
-I replicated the same style but I addapted for even smaller screens. Since it contains 3 columns, I moved the value below the deposit type to save more space. Mock can be tested with more elements.
+I replicated the same style but I adapted for even smaller screens. Since it contains 3 columns, I moved the value below the deposit type to save more space. Mock can be tested with more elements.
 
 # Week Activity
 
@@ -66,6 +69,8 @@ So I also prepared a different approach, following what we had in My Cards and R
 
 The Write Ammount text also moves to top of the input, to leave more space for mobile.
 
+Send button shows callback when clicked.
+
 # Balance History
 
 Similar to design.
@@ -76,18 +81,25 @@ Similar to design showing the 3 tabs with the markers. On mobile I displayed the
 
 # Edit Profile
 
-Enabled view showing 2 columns for tablet.
+I also enabled the two column layout for tablets. The form includes different types of validations and provides a callback after saving.
 
 ## Global
 
 # Alerts
 
-Created service to show callback messages (used after saving profile and when See All is clicked). It supports different kind of messages to inform users.
+I created a service to show callback messages (used after saving profile and when See All/Send is clicked). It can display different kinds of messages to inform users.
 
 # Responsiveness
 
-As mentioned aboce, extra changes were done taking in consideration missing design, improvements or even much smaller screens.
+I made some extra changes taking into account missing design elements, improvements or even smaller screens.
 
 # Accessibility
 
-The page is completely tested using just the keyboard and it is supported by screen readers.
+I made sure the page is completely accessible using just the keyboard and also tested it with screen readers.
+
+# Libs
+
+- React and React router
+- Redux
+- TailwindCSS
+- Chart.js
