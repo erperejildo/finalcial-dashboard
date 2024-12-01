@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Contact } from '../interfaces/Contact';
-import { contactsList } from '../mocks/mocks';
+import { contactsList, TRANSACTIONS_ARROWS } from '../mocks/mocks';
 import { useAlert } from '../services/AlertService';
 import './QuickTransfer.scss';
-
-// NOTE: enable this to show arrows to navigate between contacts
-const showArrows = true;
 
 const QuickTransfer: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>(contactsList);
@@ -30,7 +27,7 @@ const QuickTransfer: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!showArrows) return;
+    if (!TRANSACTIONS_ARROWS) return;
 
     const handleResize = () => updateArrowVisibility();
     window.addEventListener('resize', handleResize);
@@ -71,7 +68,7 @@ const QuickTransfer: React.FC = () => {
       <h2 className="text-2xl font-semibold mb-4">Quick Transfer</h2>
       <div className="rounded-xxl p-5">
         <div className="contacts-container gap-5">
-          {showArrows && (
+          {TRANSACTIONS_ARROWS && (
             <button
               onClick={() => scrollContainer('left')}
               className={`${showLeftArrow ? '' : 'hidden-arrow'} arrow p-2 rounded-full`}
@@ -92,7 +89,7 @@ const QuickTransfer: React.FC = () => {
             </button>
           )}
           <div
-            className={`contacts overflow-x-auto whitespace-nowrap ${showArrows ? 'overflow-hidden' : 'overflow-x-auto'}`}
+            className={`contacts overflow-x-auto whitespace-nowrap ${TRANSACTIONS_ARROWS ? 'overflow-hidden' : 'overflow-x-auto'}`}
             ref={containerRef}
             tabIndex={0}
           >
@@ -127,7 +124,7 @@ const QuickTransfer: React.FC = () => {
               ))}
             </div>
           </div>
-          {showArrows && (
+          {TRANSACTIONS_ARROWS && (
             <button
               onClick={() => scrollContainer('right')}
               className={`${showRightArrow ? '' : 'hidden-arrow'} arrow p-2 rounded-full`}

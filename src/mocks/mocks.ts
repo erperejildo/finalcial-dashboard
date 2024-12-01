@@ -37,6 +37,8 @@ export const cardsList: Card[] = [
   // },
 ];
 
+export const TRANSACTIONS_ARROWS = false;
+
 export const transactions: Transaction[] = [
   {
     description: 'Deposit from my Card',
