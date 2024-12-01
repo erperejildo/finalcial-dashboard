@@ -51,6 +51,13 @@ const Sidebar: React.FC = () => {
                 className="task cursor-pointer"
                 onClick={toggleSidebar}
                 role="menuitem"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleSidebar();
+                  }
+                }}
               >
                 <img src={TaskIcon} alt="Soar Task" className="icon" />
                 Soar Task

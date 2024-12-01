@@ -1,16 +1,9 @@
 import React from 'react';
 import CardChip from '../assets/icons/card_chip.svg';
+import { Card } from '../interfaces/Card';
 import './CardDetails.scss';
 
-interface CardDetailsProps {
-  cardholderName: string;
-  cardNumber: string;
-  balance: number;
-  validDate: string;
-  theme: string;
-}
-
-const CardDetails: React.FC<CardDetailsProps> = ({
+const CardDetails: React.FC<Card> = ({
   cardholderName,
   cardNumber,
   balance,

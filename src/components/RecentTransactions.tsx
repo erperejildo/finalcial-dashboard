@@ -1,46 +1,6 @@
 import React from 'react';
+import { transactions } from '../mocks/mocks';
 import './RecentTransactions.scss';
-
-interface Transaction {
-  description: string;
-  date: string;
-  amount: number;
-  method: string;
-}
-
-const transactions: Transaction[] = [
-  {
-    description: 'Deposit from my Card',
-    date: '2021-01-28',
-    amount: -850,
-    method: 'card',
-  },
-  {
-    description: 'Deposit PayPal',
-    date: '2021-01-25',
-    amount: 2500,
-    method: 'paypal',
-  },
-  {
-    description: 'Monthly Rent',
-    date: '2021-01-21',
-    amount: 5400,
-    method: 'other',
-  },
-  // NOTE: addapted to show multiple cards. Uncomment to test:
-  // {
-  //   description: 'Deposit PayPal',
-  //   date: '2021-01-25',
-  //   amount: 2500,
-  //   method: 'paypal',
-  // },
-  // {
-  //   description: 'Monthly Rent',
-  //   date: '2021-01-21',
-  //   amount: 5400,
-  //   method: 'other',
-  // },
-];
 
 const RecentTransactions: React.FC = () => {
   const formatDate = (dateString: string): string => {

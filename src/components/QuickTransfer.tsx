@@ -1,54 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Contact } from '../interfaces/Contact';
+import { contactsList } from '../mocks/mocks';
+import { useAlert } from '../services/AlertService';
 import './QuickTransfer.scss';
 
 // NOTE: enable this to show arrows to navigate between contacts
-const showArrows = false;
-
-interface Contact {
-  name: string;
-  role: string;
-  profilePicture: string;
-  selected: boolean;
-}
-
-const contactsList: Contact[] = [
-  {
-    name: 'Livia Bator',
-    role: 'CEO',
-    profilePicture: 'https://i.pravatar.cc/100?img=1',
-    selected: true,
-  },
-  {
-    name: 'Randy Press',
-    role: 'Director',
-    profilePicture: 'https://i.pravatar.cc/100?img=5',
-    selected: false,
-  },
-  {
-    name: 'Workman',
-    role: 'Designer',
-    profilePicture: 'https://i.pravatar.cc/100?img=10',
-    selected: false,
-  },
-  {
-    name: 'Workman',
-    role: 'Designer',
-    profilePicture: 'https://i.pravatar.cc/100?img=8',
-    selected: false,
-  },
-  {
-    name: 'Workman',
-    role: 'Designer',
-    profilePicture: 'https://i.pravatar.cc/100?img=7',
-    selected: false,
-  },
-];
+const showArrows = true;
 
 const QuickTransfer: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>(contactsList);
   const containerRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const { showAlert } = useAlert();
+
+  const handleSendClick = () => {
+    showAlert('Money sent!', 'info');
+  };
 
   const updateArrowVisibility = () => {
     if (!containerRef.current) return;
@@ -190,7 +158,10 @@ const QuickTransfer: React.FC = () => {
               className="pl-6 pr-2 text-sm border-none outline-none flex-1"
               aria-label="Amount input"
             />
-            <button className="bg-black text-white text-sm font-bold py-2 px-6 rounded-full flex items-center">
+            <button
+              onClick={handleSendClick}
+              className="bg-black text-white text-sm font-bold py-2 px-6 rounded-full flex items-center"
+            >
               Send
               <svg
                 className="h-8 w-8 ml-2"
