@@ -11,36 +11,31 @@ const MyCards: React.FC = () => {
   const [isError, setIsError] = useState<boolean>(false);
   const { showAlert } = useAlert();
 
-  useEffect(() => {
-    let isMounted = true;
-    (async () => {
-      setIsLoading(true);
-      setIsError(false);
-      try {
-        const response = await new Promise<Card[]>((resolve) => {
-          setTimeout(() => resolve(cardsList), MYCARDS_API_DELAY);
-        });
+  const fetchData = async () => {
+    setIsLoading(true);
+    setIsError(false);
+    try {
+      const response = await new Promise<Card[]>((resolve) => {
+        setTimeout(() => resolve(cardsList), MYCARDS_API_DELAY);
+      });
 
-        if (MYCARDS_FAILS) {
-          throw new Error('Failed to fetch cards');
-        }
-
-        setIsLoading(false);
-        if (isMounted) {
-          setCards(response);
-        }
-      } catch (error) {
-        setIsLoading(false);
-        setIsError(true);
-        if (isMounted) {
-          showAlert('Something went wrong while fetching data', 'error');
-        }
+      if (MYCARDS_FAILS) {
+        throw new Error('Failed to fetch cards');
       }
-    })();
-    return () => {
-      isMounted = false;
-    };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+      setIsLoading(false);
+      setCards(response);
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+      showAlert('Something went wrong while fetching data', 'error');
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSeeAllClick = () => {
     showAlert('You have clicked See All', 'info');
@@ -68,7 +63,9 @@ const MyCards: React.FC = () => {
               <div>
                 <button
                   type="button"
-                  className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                  aria-label="Try fetching the cards again"
+                  onClick={fetchData}
+                  className="text-white m-1 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                 >
                   Try again
                 </button>
