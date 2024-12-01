@@ -28,7 +28,7 @@ const routes = [
 ];
 
 const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false); // Sidebar visibility state
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -48,7 +48,7 @@ const Sidebar: React.FC = () => {
           <div className="h-full overflow-y-auto">
             <ul className="space-y-2 font-medium" role="menubar">
               <li
-                className="task cursor-pointer p-8"
+                className="task cursor-pointer"
                 onClick={toggleSidebar}
                 role="menuitem"
               >

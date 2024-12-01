@@ -1,4 +1,3 @@
-// src/pages/Dashboard.tsx
 import React from 'react';
 import BalanceHistoryChart from '../components/BalanceHistoryChart';
 import ExpenseStatistics from '../components/ExpenseStatistics';

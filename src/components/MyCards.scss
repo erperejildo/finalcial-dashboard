@@ -3,8 +3,11 @@
   align-items: center;
   justify-content: space-between;
 
-  span {
-    cursor: pointer;
+  .see-all-button {
     font-weight: 600;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 }

@@ -66,7 +66,7 @@ const Header: React.FC<Props> = ({ onToggleSidebar }) => {
             <input
               type="search"
               id="default-search"
-              className="block w-full text-sm rounded-xxl"
+              className="block w-full text-ml rounded-xxl"
               placeholder="Search for something"
               aria-label="Search input"
               required
