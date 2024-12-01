@@ -119,7 +119,7 @@ const EditProfile: React.FC = () => {
         <div className="avatar mr-8">
           <div className="relative">
             <img
-              className="rounded-full w-32 h-32 object-cover"
+              className="rounded-full object-cover"
               src={
                 profileData.profilePicture || 'https://i.pravatar.cc/100?img=7'
               }

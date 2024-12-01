@@ -19,28 +19,31 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Dev Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[This is the Figma design](https://www.figma.com/design/Lf57jfEvFsQjNZdQi07qyv/Soar-Front-End-Dev-Task?node-id=0-1&node-type=canvas&t=Wl1OJOXC4MFsdmtj-0) that needed to be replicated. I tried to get as close as possible to the original design, but there are some parts, that I think they needed some improvements that I think they needed some adjustments to be more visually appealing.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I will explain them part by part.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Sidebar
 
-### `npm run eject`
+The desing doesn't show up this looks like on mobile when it's open. I respected the desktop design, but made the Soar Task area clickable to hide the menu on mobile.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Header
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+For desktop we have settings and notifications buttons, but the desing looses them when moving to smaller screens, so I though to make room for these 2 buttons as well. So instead of having a row with a full searchbar, I added these buttons for small screens too.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Dashboard
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Here I chose [Chart.js](https://www.chartjs.org) for the graphics. These charts are quite customizable, but not completely. This means that some of the charts don't look exactly the same as the ones we have in the design, but some changes, were impossible to achieve with real code. For example, Balance History shows Jul as 150 and next month, Aug as 210 (aprox). In between we have a curve around 260 but we have no value there.
 
-## Learn More
+# My Cards
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2 cards are shown but it is addapted to show multiple within an horizontal scroll. Since the instructions mentioned "appropriate feedback when clicked", the "See All" button just shows a simple message inside the component.
+In this component, you can find a comment with the text `// NOTE`, so you can easily test it with more cards.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This comment is added also in other components, so you can easily test mocks or different approaches as well.
+
+# Recent Transactions
+
+I replicated the same style but I addapted for even smaller screens since it contains 3 columns, moving the value below the deposit type.
