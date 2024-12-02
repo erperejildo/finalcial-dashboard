@@ -7,7 +7,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import './WeeklyActivityChart.scss';
 
@@ -84,6 +84,14 @@ const options = {
 };
 
 const WeeklyActivityChart: React.FC = () => {
+  const [chartKey, setChartKey] = React.useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setChartKey((prevKey) => prevKey + 1);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div
       className="weekly-activity-chart component"
@@ -92,7 +100,7 @@ const WeeklyActivityChart: React.FC = () => {
     >
       <h2 className="text-2xl font-semibold mb-4">Weekly Activity</h2>
       <div className="chart-container rounded-xxl" role="figure">
-        <Bar data={data} options={options} />
+        <Bar key={chartKey} data={data} options={options} />
       </div>
     </div>
   );

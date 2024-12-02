@@ -7,7 +7,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Pie } from 'react-chartjs-2';
 import './ExpenseStatistics.scss';
 
@@ -68,6 +68,14 @@ const options = {
 };
 
 const ExpenseStatistics: React.FC = () => {
+  const [chartKey, setChartKey] = React.useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setChartKey((prevKey) => prevKey + 1);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div
       className="expense-statistics component"
@@ -80,7 +88,7 @@ const ExpenseStatistics: React.FC = () => {
         role="figure"
         aria-label="Pie chart of expense statistics"
       >
-        <Pie data={data} options={options} />
+        <Pie key={chartKey} data={data} options={options} />
       </div>
     </div>
   );

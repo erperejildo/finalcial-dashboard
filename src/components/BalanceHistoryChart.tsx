@@ -8,7 +8,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import './BalanceHistoryChart.scss';
 
@@ -102,6 +102,14 @@ const options = {
 // };
 
 const BalanceHistoryChart: React.FC = () => {
+  const [chartKey, setChartKey] = React.useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setChartKey((prevKey) => prevKey + 1);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="balance-history-chart component">
       <h2 className="text-2xl font-semibold mb-4">Balance History</h2>
@@ -110,7 +118,7 @@ const BalanceHistoryChart: React.FC = () => {
         role="figure"
         aria-label="Balance History Chart"
       >
-        <Line data={data} options={options} />
+        <Line key={chartKey} data={data} options={options} />
       </div>
     </div>
   );
